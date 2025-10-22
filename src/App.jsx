@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import ChatMessage from './components/ChatMessage';
 
-// --- 追加: ユーザー一覧抽出 ---
 function extractUsers(chatData) {
     const users = new Set();
     chatData.forEach(day => {
@@ -10,7 +9,6 @@ function extractUsers(chatData) {
     return Array.from(users);
 }
 
-// --- 追加: txtパーサー ---
 function parseLineChat(text) {
     // 2形式に対応
     const lines = text.split(/\r?\n/);
@@ -22,10 +20,7 @@ function parseLineChat(text) {
     const dateLine1 = /^(\d{4})\.(\d{2})\.(\d{2})/;
     // フォーマット2: 2021/11/26(金)
     const dateLine2 = /^(\d{4})\/(\d{1,2})\/(\d{1,2})/;
-    // メッセージ: 07:10 sima ありがと
     const msgLine1 = /^(\d{1,2}:\d{2})\s+(\S+)\s+(.+)$/;
-    // メッセージ: 2:19 Reina 通話時間 1:30:01
-    // ↑上と同じでOK
 
     for (let line of lines) {
         line = line.trim();
@@ -70,7 +65,6 @@ function App() {
     // --- 追加: ユーザー一覧 ---
     const users = extractUsers(chatData);
 
-    // --- 追加: ファイル選択処理 ---
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (!file) return;
