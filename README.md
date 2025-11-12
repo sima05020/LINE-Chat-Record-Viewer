@@ -5,5 +5,7 @@ LINEの履歴を吹っ飛ばしちゃって萎えることって、あります�
 
 データは全てローカルで処理されるのでこちらでは収集しません。安心して使ってください。
 
+https://sima05020.github.io/LINE-Chat-Record-Viewer/
+
 ## 使ったもの
 React , Vite
